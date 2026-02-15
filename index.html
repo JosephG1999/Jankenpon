@@ -10,9 +10,98 @@
         <title>Rock Paper Scissors</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        
+        <h1>ROCK, PAPER, SCISSORS!</h1>
+        <button onclick="gameFunction('rock')">ROCK</button>
+        <button onclick="gameFunction('paper')">PAPER</button>
+        <button onclick="gameFunction('scissors')">SCISSORS</button>
+        <script>
+            function versusFunction()
+            {
+                let randomNumber = Math.floor(Math.random() * 3);
+                if (randomNumber == 0)
+                {
+                    return "rock";
+                }
+                else if (randomNumber == 1)
+                {
+                    return "paper";
+                }
+                else if (randomNumber == 2)
+                {
+                    return "scissors";
+                }
+            }
+            function gameFunction(playerChoice)
+            {
+                let computerChoice = versusFunction();
+                if (playerChoice == "rock")
+                {
+                    if (computerChoice == "rock")
+                    {
+                        alert("You chose " + playerChoice
+                        + "\nThe computer chose " + computerChoice +
+                        "\nTie!");
+                    }
+                    else if (computerChoice == "paper")
+                    {
+                        alert("You chose " + playerChoice
+                        + "\nThe computer chose " + computerChoice +
+                        "\nLoss!");
+                    }
+                    else if (computerChoice == "scissors")
+                    {
+                        alert("You chose " + playerChoice
+                        + "\nThe computer chose " + computerChoice +
+                        "\nWin!");
+                    }
+                }
+                else if (playerChoice == "paper")
+                {
+                    if (computerChoice == "rock")
+                    {
+                        alert("You chose " + playerChoice
+                        + "\nThe computer chose " + computerChoice +
+                        "\nWin!");
+                    }
+                    else if (computerChoice == "paper")
+                    {
+                        alert("You chose " + playerChoice
+                        + "\nThe computer chose " + computerChoice +
+                        "\nTie!");
+                    }
+                    else if (computerChoice == "scissors")
+                    {
+                        alert("You chose " + playerChoice
+                        + "\nThe computer chose " + computerChoice +
+                        "\nLoss!");
+                    }
+                }
+                else if (playerChoice == "scissors")
+                {
+                    if (computerChoice == "rock")
+                    {
+                        alert("You chose " + playerChoice
+                        + "\nThe computer chose " + computerChoice +
+                        "\nLoss!");
+                    }
+                    else if (computerChoice == "paper")
+                    {
+                        alert("You chose " + playerChoice
+                        + "\nThe computer chose " + computerChoice +
+                        "\nWin!");
+                    }
+                    else if (computerChoice == "scissors")
+                    {
+                        alert("You chose " + playerChoice
+                        + "\nThe computer chose " + computerChoice +
+                        "\nTie!");
+                    }
+                }
+
+            }
+        </script>
     </body>
 </html>
