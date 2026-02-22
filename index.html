@@ -17,11 +17,22 @@
         <button onclick="gameFunction('rock')">ROCK</button>
         <button onclick="gameFunction('paper')">PAPER</button>
         <button onclick="gameFunction('scissors')">SCISSORS</button>
+        <button onclick="resetScore()">RESET SCORE</button>
+        <button onclick="alert(`Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`)">SHOW SCORE</button>
         <script>
-            const score = {
+            const score = JSON.parse(localStorage.getItem("score")) || {
                 wins: 0,
                 losses: 0,
                 ties: 0
+            } 
+
+            function resetScore()
+            {
+                score.wins = 0;
+                score.losses = 0;
+                score.ties = 0;
+                localStorage.setItem("score", JSON.stringify(score));
+                alert("Score reset!" + "\n" + `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
             }
 
             function versusFunction()
@@ -66,6 +77,8 @@
                 if (result == "win!") {score.wins++;}
                 else if (result == "lose!") {score.losses++;}
                 else if (result == "tie!") {score.ties++;}
+
+                localStorage.setItem("score", JSON.stringify(score));
 
                 alert(`You chose ${playerChoice}.` + "\n" + `The computer chose ${computerChoice}.` + "\n" + `You ${result}`
                 + "\n" + `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
